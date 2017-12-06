@@ -6,12 +6,15 @@ var game = new Phaser.Game(1000, 600, Phaser.AUTO, 'gamecontent', {
 
 var gravity = 800;
 var playerSpeed = 100;
-var playerJump = 250;
+var playerJump = 300;
 var enemySpeed = 250;
 
+var goalX = 825;
+var goalY = 225;
 var platform;
 var platform2;
-var platformLocationY = 250;
+var platformWidth = 300;
+var platformLocationY = 300;
 var player;
 var cursors;
 var playerStartX = 180;
@@ -88,7 +91,7 @@ function create() {
   enemy = new Enemy(game, 575, 270);
   enemy.body.velocity.x = enemySpeed;
 
-  goal = new Goal(game, 825, 225);
+  goal = new Goal(game, goalX, goalY);
 
   cursors = game.input.keyboard.createCursorKeys();
 }
