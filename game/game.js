@@ -5,8 +5,8 @@ var game = new Phaser.Game(1000, 600, Phaser.AUTO, 'gamecontent', {
 });
 
 var gravity = 800;
-var playerSpeed = 100;
-var playerJump = 300;
+var playerSpeed = 115;
+var playerJump = 250;
 var enemySpeed = 250;
 
 var goalX = 825;
@@ -118,9 +118,8 @@ function update() {
 
   if(win) {
     console.log('Winner!');
-    playerOut(player);
+    playerReset(player);
   } else if(lose) {
-    console.log('Lose!');
     playerOut(player);
   }
 
@@ -130,6 +129,11 @@ function update() {
 }
 
 function playerOut(player) {
+  console.log('Lose!');
+  playerReset(player);
+}
+
+function playerReset(player) {
   player.reset(playerStartX, playerStartY);
   player.body.velocity.x = 0;
 }
